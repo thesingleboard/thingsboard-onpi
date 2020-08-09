@@ -11,11 +11,11 @@ These install scripts are based on the Thingsboard install docs, and have been t
 
 ### Software
 
-1. **Raspberry Pi OS Buster**
+**Raspberry Pi OS Buster**
 
-2. **Thingsboard Community Edition**
+**Thingsboard Community Edition**
 
-3. **Docker CE** - only if doing docker based install -
+**Docker CE** - only if doing docker based install -
 
 ## Standard Install
 
