@@ -47,3 +47,7 @@ export SQL_POSTGRES_TS_KV_PARTITIONING=MONTHS
 export JAVA_OPTS="$JAVA_OPTS -Xms256M -Xmx256M"
 EOF
 ) >> /etc/thingsboard/conf/thingsboard.conf
+
+
+
+curl -o /dev/null -s -w "%{http_code}\n" http://localhost:8080
