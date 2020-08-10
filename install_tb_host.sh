@@ -49,7 +49,7 @@ export DATABASE_ENTITIES_TYPE=sql
 export DATABASE_TS_TYPE=sql
 export SPRING_JPA_DATABASE_PLATFORM=org.hibernate.dialect.PostgreSQLDialect
 export SPRING_DRIVER_CLASS_NAME=org.postgresql.Driver
-export SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5432/thingsboard
+export SPRING_DATASOURCE_URL=jdbc:postgresql://${IP}:5432/thingsboard
 export SPRING_DATASOURCE_USERNAME=postgres
 export SPRING_DATASOURCE_PASSWORD=${NEWPSQLPASS}
 export SPRING_DATASOURCE_MAXIMUM_POOL_SIZE=5
@@ -67,10 +67,10 @@ sudo service thingsboard start
 
 while [ out -ne 200 ]
 do
-    out = curl -o /dev/null -s -w "%{http_code}\n" http://localhost:8080
+    out = curl -o /dev/null -s -w "%{http_code}\n" http://${IP}:8080
     sleep(5)
     echo 'Waiting for Thingsboard to come up'
 done
 
 echo 'Thingsboard is up'
-echo ''
+echo 'http://${IP}/8080'
