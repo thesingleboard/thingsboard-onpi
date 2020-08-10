@@ -22,7 +22,7 @@ sudo update-alternatives --config java
 #Get thingsboard 3.0.1
 wget https://github.com/thingsboard/thingsboard/releases/download/v3.0.1/thingsboard-3.0.1.deb
 
-#
+#install thingsboard
 sudo dpkg -i thingsboard-3.0.1.deb
 
 #Set up pg sql - can be used for deloyments with less than 5000 devices reporting in
