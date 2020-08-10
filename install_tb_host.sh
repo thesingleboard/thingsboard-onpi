@@ -1,17 +1,28 @@
 #!/bin/bash -x
+
+#What adapter will Thingsboard use. 
+ETH='wlan0'
+
 #If the DB has never been used just leave blank, if exisiting db set password here
 export env PSQLPASS=''
+
+#The new password to set
 export env NEWPSQLPASS='newpass'
 
+#get the IP of the primary adapter
+export env IP=`ip addr | grep $ETH -A2 | grep 'inet' | head -1 | awk '{print $2}' | cut -f1  -d'/'`
+
+#update the OS and install Java
 sudo apt update
 sudo apt install -y openjdk-8-jdk
 
 #make sure we use open JDK 8 by default
 sudo update-alternatives --config java
 
-#Set up thingsboard
+#Get thingsboard 3.0.1
 wget https://github.com/thingsboard/thingsboard/releases/download/v3.0.1/thingsboard-3.0.1.deb
 
+#
 sudo dpkg -i thingsboard-3.0.1.deb
 
 #Set up pg sql - can be used for deloyments with less than 5000 devices reporting in
@@ -48,6 +59,18 @@ export JAVA_OPTS="$JAVA_OPTS -Xms256M -Xmx256M"
 EOF
 ) >> /etc/thingsboard/conf/thingsboard.conf
 
+#load thingsboard
+sudo /usr/share/thingsboard/bin/install/install.sh
 
+#start the service
+sudo service thingsboard start
 
-curl -o /dev/null -s -w "%{http_code}\n" http://localhost:8080
+while [ out -ne 200 ]
+do
+    out = curl -o /dev/null -s -w "%{http_code}\n" http://localhost:8080
+    sleep(5)
+    echo 'Waiting for Thingsboard to come up'
+done
+
+echo 'Thingsboard is up'
+echo ''
