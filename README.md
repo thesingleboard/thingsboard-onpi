@@ -41,3 +41,11 @@ Docker CE Arm - https://docs.docker.com/engine/install/debian/
 ```
 ./install_tb_docker.sh
 ```
+
+## Connect to Thingsboard
+
+## Secure Thingsboard on Pi
+
+## Connect simple IoT device to Thingsboard
+### MQTT
+### HTTP
