@@ -32,4 +32,12 @@ Docker CE Arm - https://docs.docker.com/engine/install/debian/
 
 ## Standard Install
 
+```
+./install_tb_host.sh
+```
+
 ## Docker Install
+
+```
+./install_tb_docker.sh
+```
