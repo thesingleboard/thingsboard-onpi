@@ -62,13 +62,6 @@ export JAVA_OPTS="$JAVA_OPTS -Xms256M -Xmx256M"
 EOF
 ) >> /etc/thingsboard/conf/thingsboard.conf
 
-<<<<<<< HEAD
-sudo /usr/share/thingsboard/bin/install/install.sh --loadDemo
-
-sudo service thingsboard start
-
-
-=======
 #load thingsboard
 sudo /usr/share/thingsboard/bin/install/install.sh
 
@@ -84,4 +77,3 @@ done
 
 echo 'Thingsboard is up'
 echo 'http://${IP}/8080'
->>>>>>> bcda8597732e0dac82906efbc3c5c3fb86e6465f
