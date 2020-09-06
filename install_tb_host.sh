@@ -47,3 +47,9 @@ export SQL_POSTGRES_TS_KV_PARTITIONING=MONTHS
 export JAVA_OPTS="$JAVA_OPTS -Xms256M -Xmx256M"
 EOF
 ) >> /etc/thingsboard/conf/thingsboard.conf
+
+sudo /usr/share/thingsboard/bin/install/install.sh --loadDemo
+
+sudo service thingsboard start
+
+
