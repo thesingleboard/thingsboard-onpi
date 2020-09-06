@@ -1,5 +1,8 @@
 #!/bin/bash -x
 
+#This setup script is based on the in memory setup for a pi3 found on the thingsboard site
+#https://thingsboard.io/docs/user-guide/install/rpi/?ubuntuThingsboardQueue=inmemory
+
 #What adapter will Thingsboard use. 
 ETH='wlan0'
 
